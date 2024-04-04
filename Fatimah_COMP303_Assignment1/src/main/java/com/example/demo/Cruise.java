@@ -21,7 +21,7 @@ public class Cruise {
 	private Double price;
 	private Double discount;
 	private Double tax;
-	
+
 	public String getFirstName() {
 		return firstName;
 	}
