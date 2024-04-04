@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+        <title>Booking Confirmation</title>
+        <link href="/style.css" type="text/css" rel="stylesheet" />
+	</head>
+	<body>
+		<h2>Welcome <span th:text="${firstName} + ' ' + ${lastName}"></span></h2> 
+		<div id="container">
+			<div>
+			<h3>Your Booking details are as follows:</h3>
+			<ul>
+				<li><strong>Email Address: </strong><span th:text="${email}"></span></li>
+			    <li><strong>Phone Number: </strong><span th:text="'(' + ${areaCode} + ') ' + ${phoneNumber}"></span></li>
+			    <li><strong>Address: </strong><span th:text="${address1 + ', ' + city + ', ' + province + ', ' + country}"></span></li>
+			    
+		   </ul>
+		   </div>
+		   <div>
+			<h3>Cruise details: </h3>
+			<ul>
+				<li><strong>Stateroom Type: </strong><span th:text="${stateroomType}"></span></li>
+			    <li><strong>Price of a room: </strong> CAD <span th:text="${price}"></span></li>
+				<li><strong>Number of rooms: </strong><span th:text="${staterooms}"></span></li>
+			</ul>
+			<h3 class="total-price">Total Price: CAD $<span th:text="${totalPrice}"></span></h3>
+		   </div>
+		</div>	
+	</body>
+</html>
