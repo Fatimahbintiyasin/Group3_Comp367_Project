@@ -2,12 +2,18 @@ package com.example.demo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CruiseController {
 
+	@GetMapping("/booking")
+    public String showBookingPage() {
+        return "booking"; // assuming "booking.html" is your booking page
+    }
+	
 	@RequestMapping("/bookNow")
 	public String bookNow(@ModelAttribute("bookingForm") Cruise cruise, Model m) {
 		double initialPrice = cruise.calculatePrice();
