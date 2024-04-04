@@ -5,9 +5,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CruiseController {
+
+	@GetMapping("/booking")
+    public String showBookingPage() {
+        return "booking"; // assuming "booking.html" is your booking page
+    }
 
 	@RequestMapping("/bookNow")
 	public String bookNow(@ModelAttribute("bookingForm") Cruise cruise, Model m) {
@@ -15,9 +23,7 @@ public class CruiseController {
 		double price = initialPrice * cruise.getStaterooms();
 		double discount = cruise.calculateDiscount();
 		double tax = cruise.calculateTax();
-		
-		System.out.println(cruise.getAgeGroup());
-		
+    
 		double totalPrice = (price - discount) + tax;
 		
 		m.addAttribute("firstName", cruise.getFirstName());
